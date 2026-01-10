@@ -96,7 +96,7 @@ HomeHeal is optimized for Vercel's serverless environment. To ensure stability, 
 
 
 ## 🛡️ Security & Authorization
--The project uses Laravel Policies to ensure data privacy:
+The project uses Laravel Policies to ensure data privacy:
 - Therapists can only view and manage their own created protocols.
 - Patients can only view protocols assigned specifically to them.
 - Session logging is restricted to users with the patient role.
