@@ -1,6 +1,7 @@
 # HomeHeal 🏥
 
 HomeHeal is a professional digital rehabilitation platform designed to bridge the gap between clinical physical therapy and home-based recovery. It allows therapists to prescribe precise exercise protocols and enables patients to track their daily progress with clinical data.
+
 Website link, hosted at Vercel: https://home-heal.vercel.app/
 
 ## 🔐 Login Credentials (Test Data)
