@@ -89,10 +89,10 @@ Website link, hosted at Vercel: https://home-heal.vercel.app/
 
 HomeHeal is optimized for Vercel's serverless environment. To ensure stability, the following environment variables must be set in the Vercel Dashboard:
 
-- ```bash SESSION_DRIVER=cookie ```: Required because the Vercel filesystem is read-only.
-- ```bash LOG_CHANNEL=stderr ```: Ensures application logs are visible in Vercel's log viewer.
-- ```bash APP_KEY```: Your generated Laravel application key.
-- ```bash DB_HOST```: Your Railway Public Proxy host (do not use .internal hosts).
+- ``` SESSION_DRIVER=cookie ```: Required because the Vercel filesystem is read-only.
+- ``` LOG_CHANNEL=stderr ```: Ensures application logs are visible in Vercel's log viewer.
+- ``` APP_KEY```: Your generated Laravel application key.
+- ``` DB_HOST```: Your Railway Public Proxy host (do not use .internal hosts).
 
 
 ## 🛡️ Security & Authorization
