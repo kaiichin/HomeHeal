@@ -1,7 +1,6 @@
 # HomeHeal 🏥
 
-HomeHeal is a digital platform connecting physical therapists with patients to improve recovery outcomes through remote monitoring and digital protocol management.
-
+HomeHeal is a professional digital rehabilitation platform designed to bridge the gap between clinical physical therapy and home-based recovery. It allows therapists to prescribe precise exercise protocols and enables patients to track their daily progress with clinical data.
 Website link, hosted at Vercel: https://home-heal.vercel.app/
 
 ## 🔐 Login Credentials (Test Data)
@@ -16,62 +15,56 @@ Website link, hosted at Vercel: https://home-heal.vercel.app/
 
 ---
 
-## 🚀 Getting Started Area
+## 🚀 Key Feature
 
-Follow these instructions to set up the project on your local machine using XAMPP.
+### For Physical Therapists
 
-### Prerequisites
-1.  **XAMPP**: Download and install from [apachefriends.org](https://www.apachefriends.org/).
-2.  **Composer**: Dependency manager for PHP.
-3.  **Node.js & NPM**: For frontend assets.
-4.  **Git**: To clone the repository.
+- Exercise Library: Create and manage a comprehensive database of rehabilitation movements.
+- Protocol Builder: Bundle exercises into specific recovery routines (Protocols) with custom sets and reps.
+- Patient Assignment: Assign digital protocols to patients with set durations (e.g., 30 or 60 days).
+- Clinical Monitoring: Monitor patient recovery in real-time through pain scores and difficulty ratings logged by the patient.
 
-### 📥 Installation Steps
+### For Patients
 
-1.  **Start XAMPP Servers**
-    *   Open **XAMPP Control Panel**.
-    *   Click **Start** next to **Apache**.
-    *   Click **Start** next to **MySQL**.
-    *   *Ensure both turn green.*
+- Digital Prescriptions: Access clear instructions for home exercises directly from a mobile or desktop dashboard.
+- Daily Session Logs: Record completed sessions along with critical recovery data:
+    - Pain Score (0-10): Clinical metric for intensity tracking.
+    - Difficulty Rating (1-5): Feedback on movement ease.
+    - Personal Notes: Communication channel for feedback to the therapist.
+- Progress Tracking: View history of completed sessions to maintain accountability.
 
-2.  **Create the Database**
-    *   Open your browser and go to `http://localhost/phpmyadmin`.
-    *   Click **New** in the sidebar.
-    *   Database name: `homeheal`
-    *   Click **Create**.
+## 🛠️ Tech Stack
 
-3.  **Clone the Repository**
+- **Framework:** Laravel 11 (PHP)
+- **Frontend:** Tailwind CSS & Alpine.js
+- **Database:** MySQL (Hosted via Railway)
+- **Hosting:** Vercel (Serverless)
+- **Authentication:** Laravel Breeze (Customized for Role-Based Access)
+
+## 📥 Installation & Setup
+
+1.  **Clone the Repository**
     Open your terminal (Command Prompt or PowerShell) and navigate to where you want the project:
     ```bash
     git clone <repository-url>
     cd HomeHeal
     ```
 
-4.  **Install Backend Dependencies**
+2.  **Install Backend Dependencies**
     ```bash
     composer install
     ```
 
 5.  **Install Frontend Dependencies**
     ```bash
-    npm install
+    npm install && npm run build
     ```
 
-6.  **Environment Setup**
+6.  **Environment Setup:** Copy .env.example to .env and configure your Railway database credentials.
     Copy the example environment file:
     ```bash
     cp .env.example .env
     ```
-    *Open the `.env` file in a text editor (like VS Code or Notepad) and check strict settings:*
-    ```ini
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=homeheal
-    DB_USERNAME=root
-    DB_PASSWORD=
-    ```
-    *(Note: XAMPP default MySQL password is typically empty, so leave `DB_PASSWORD=` blank unless you changed it).*
 
 7.  **Generate App Key**
     ```bash
@@ -84,33 +77,25 @@ Follow these instructions to set up the project on your local machine using XAMP
     php artisan migrate --seed
     ```
 
-9.  **Create Storage Link**
+9.  **Start local Server**
     ```bash
-    php artisan storage:link
+    php artisan serve
     ```
 
 ---
 
-## 🏃‍♂️ Running the Application
+## ☁️ Vercel Deployment Notes
 
-You need to run two separate terminal commands (keep both running):
+HomeHeal is optimized for Vercel's serverless environment. To ensure stability, the following environment variables must be set in the Vercel Dashboard:
 
-**Terminal 1 (Backend Server):**
-```bash
-php artisan serve
-```
-
-**Terminal 2 (Frontend compilation):**
-```bash
-npm run dev
-```
-
-Visit `http://localhost:8000` in your browser.
-
----
+- ```bash SESSION_DRIVER=cookie ```: Required because the Vercel filesystem is read-only.
+- ```bash LOG_CHANNEL=stderr ```: Ensures application logs are visible in Vercel's log viewer.
+- ```bash APP_KEY```: Your generated Laravel application key.
+- ```bash DB_HOST```: Your Railway Public Proxy host (do not use .internal hosts).
 
 
-## 🛠 Tech Stack
-- **Framework**: Laravel 12
-- **Frontend**: Livewire 3.7 + Alpine.js
-- **Styling**: Tailwind CSS 4.0
+## 🛡️ Security & Authorization
+-The project uses Laravel Policies to ensure data privacy:
+- Therapists can only view and manage their own created protocols.
+- Patients can only view protocols assigned specifically to them.
+- Session logging is restricted to users with the patient role.
