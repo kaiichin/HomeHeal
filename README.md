@@ -4,6 +4,18 @@ HomeHeal is a digital platform connecting physical therapists with patients to i
 
 Website link, hosted at Vercel: https://home-heal.vercel.app/
 
+## 🔐 Login Credentials (Test Data)
+
+**Therapist Account:**
+- **Email**: `therapist@homeheal.com`
+- **Password**: `password`
+
+**Patient Account:**
+- **Email**: `patient@homeheal.com`
+- **Password**: `password`
+
+---
+
 ## 🚀 Getting Started Area
 
 Follow these instructions to set up the project on your local machine using XAMPP.
@@ -97,17 +109,6 @@ Visit `http://localhost:8000` in your browser.
 
 ---
 
-## 🔐 Login Credentials (Test Data)
-
-**Therapist Account:**
-- **Email**: `therapist@homeheal.com`
-- **Password**: `password`
-
-**Patient Account:**
-- **Email**: `patient@homeheal.com`
-- **Password**: `password`
-
----
 
 ## 🛠 Tech Stack
 - **Framework**: Laravel 12
